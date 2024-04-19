@@ -1,6 +1,6 @@
 
 import Link from 'next/link'
-import './viewStyles.css'
+import './styles.css'
 export default async function ViewPage({params}:{params:{id:string}}) {
   const {id} = params
   const response = await fetch(`https://apiappprospectos-production.up.railway.app/prospects/${id}`,  { cache: 'no-store' })

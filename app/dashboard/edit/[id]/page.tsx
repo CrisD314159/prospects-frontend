@@ -1,6 +1,6 @@
 "use server"
 import EditForm from "@/app/ui/EditForm/EditForm"
-import './editStyles.css'
+import './styles.css'
 
 export default async function EditPage({params}: {params: {id: string}}) {
   const {id} = params

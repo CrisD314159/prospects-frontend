@@ -1,6 +1,10 @@
-"use server";
-import CreateForm from "@/app/ui/CreateForm/CreateForm";
-import './createStyles.css'
+
+import CreateForm from '@/app/ui/CreateForm/CreateForm';
+import './styles.css'
+
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
+
 
 export default async function CreatePage() {
   const flats = await (await fetch('https://apiappprospectos-production.up.railway.app/flats')).json()
