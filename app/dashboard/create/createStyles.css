@@ -1,0 +1,22 @@
+.main-creation-containers{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.create-title-container{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px 20px;
+  width: 100%;
+  padding: 50px 0;
+}
+
+.create-title-container h1{
+  font-size: 1.7rem;
+  color: #333;
+  font-weight: 500;
+}
