@@ -1,12 +1,11 @@
-
+"use server"
 import Link from 'next/link';
 import './styles.css'
 import DeleteButton from '../ui/DeleteButton/DeleteButton';
-export const dynamic = "force-dynamic";
-export const fetchCache = "force-no-store";
 
-export default async function Dashboard() {
-  const response = await fetch("https://apiappprospectos-production.up.railway.app/prospects")
+
+export default async function DashboardPage() {
+  const response = await fetch("https://apiappprospectos-production.up.railway.app/prospects", {cache:"no-store"})
   const prospectos = await response.json()
 
 
