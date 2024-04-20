@@ -1,4 +1,4 @@
-"use server"
+
 import Link from 'next/link';
 import './styles.css'
 import DeleteButton from '../ui/DeleteButton/DeleteButton';

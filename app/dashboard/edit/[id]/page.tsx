@@ -1,4 +1,4 @@
-"use server"
+
 import EditForm from "@/app/ui/EditForm/EditForm"
 import './styles.css'
 
