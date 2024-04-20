@@ -30,7 +30,7 @@ export default async function DashboardPage() {
         </div>
         <div className="prospects-container">
           <div className='create-button-container'>
-            <Link href="http://localhost:3000/dashboard/create" className='create-button-container'><button className="create-button">Nuevo Prospecto</button></Link>
+            <Link href="/dashboard/create" className='create-button-container'><button className="create-button">Nuevo Prospecto</button></Link>
           </div>
           <div className='no-prospects'>
             <h1>No hay prospectos</h1>
@@ -52,7 +52,7 @@ export default async function DashboardPage() {
 
       <div className="prospects-container">
         <div className='create-button-container'>
-        <Link href="http://localhost:3000/dashboard/create" className='create-button-container'><button className="create-button">Nuevo Prospecto</button></Link>
+        <Link href="/dashboard/create" className='create-button-container'><button className="create-button">Nuevo Prospecto</button></Link>
           
         </div>
       
@@ -66,7 +66,7 @@ export default async function DashboardPage() {
 
               
               <div className='button-container'>
-              <Link href={`http://localhost:3000/dashboard/view/${prospect.id}`} className='prospect-button'>
+              <Link href={`/dashboard/view/${prospect.id}`} className='prospect-button'>
                 <button className='prospect-button'>Ver prospecto </button>
               </Link>
                 <DeleteButton id={prospect.id} deleteProspect={deleteProspect}/>

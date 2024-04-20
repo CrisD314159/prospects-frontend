@@ -54,7 +54,7 @@ export default function CreateForm(
     return (
       <div className="create-form-container">
         <h1 className="created-title">Prospecto creado con éxito</h1>
-        <Link href="http://localhost:3000/dashboard"><button className="back-button">Volver a inicio</button></Link>
+        <Link href="/dashboard"><button className="back-button">Volver a inicio</button></Link>
       </div>
     ) 
   }
