@@ -2,7 +2,7 @@
 import EditForm from "@/app/ui/EditForm/EditForm"
 import './styles.css'
 
-export default async function EditPage({params}: {params: {id: string}}) {
+export default async function Edit({params}: {params: {id: string}}) {
   const {id} = params
   const prospect = await (await fetch (`https://apiappprospectos-production.up.railway.app/prospects/${id}`, {cache:"no-store"})).json()
   const flats = await (await fetch('https://apiappprospectos-production.up.railway.app/flats')).json()

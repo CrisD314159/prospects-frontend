@@ -6,7 +6,7 @@ export const dynamic = "force-dynamic";
 export const fetchCache = "force-no-store";
 
 
-export default async function CreatePage() {
+export default async function Create() {
   const flats = await (await fetch('https://apiappprospectos-production.up.railway.app/flats')).json()
   const assessors = await (await fetch('https://apiappprospectos-production.up.railway.app/assessors')).json()
   const complexes  = await (await fetch('https://apiappprospectos-production.up.railway.app/complexes')).json()
