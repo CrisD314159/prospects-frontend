@@ -35,7 +35,7 @@ export default async function ViewPage({params}:{params:{id:string}}) {
           <p>Correo asesor: {prospect.emailasesor}</p>
 
         </div>
-        <Link href={`http://localhost:3000/dashboard/edit/${prospect.id}`}><button className='edit-button'>Editar Prospecto</button></Link>
+        <Link href={`/dashboard/edit/${prospect.id}`}><button className='edit-button'>Editar Prospecto</button></Link>
        
       </div>
 
