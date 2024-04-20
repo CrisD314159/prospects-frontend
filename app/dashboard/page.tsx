@@ -6,7 +6,7 @@ export const dynamic = "force-dynamic";
 export const fetchCache = "force-no-store";
 
 export default async function DashboardPage() {
-  const response = await fetch("https://apiappprospectos-production.up.railway.app/prospects", { cache: 'no-store' })
+  const response = await fetch("https://apiappprospectos-production.up.railway.app/prospects")
   const prospectos = await response.json()
 
 

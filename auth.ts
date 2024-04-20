@@ -15,7 +15,6 @@ async function getUser(username: string): Promise<User | undefined> {
         const user = await result.json()
         return user;
     } catch (error) {
-        console.error('Failed to fetch user:', error);
         throw new Error('Failed to fetch user.');
     }
 }
@@ -24,16 +23,12 @@ export const { auth, signIn, signOut } = NextAuth({
     ...authConfig,
     providers: [Credentials({
         async authorize(credentials) {
-
-          console.log(credentials);
             const parsedCredentials = z
                 .object({ username: z.string().min(3), password: z.string().min(3) })
                 .safeParse(credentials)
 
             if (parsedCredentials.success) {
                 const { username, password } = parsedCredentials.data
-
-                console.log("username", username, "password", password);
                 const user = await getUser(username)
                 if (!user) return null
 
@@ -41,7 +36,6 @@ export const { auth, signIn, signOut } = NextAuth({
 
                 if (passwordsMatch) return user
             }
-            console.log("invalid credentials");
             return null
         }
     })]
