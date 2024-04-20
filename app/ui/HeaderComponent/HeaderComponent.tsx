@@ -8,7 +8,7 @@ export default function HeaderComponent() {
     <header className="header-main">
       <div className="image-container">
         <a href="/dashboard">
-           <img src="/camu-header.png" alt="logo" />
+           <Image src="/camu-header.png" alt="logo" height={40} width={150}/>
         </a>
       </div>
       <div className="listContainer">

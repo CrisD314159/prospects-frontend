@@ -7,7 +7,7 @@ export default function Home() {
 
       <div className="formContainer">
         <div className="imageContainer">
-          <img src="/camu-header.png" alt="logo"/>
+          <Image src="/camu-header.png" alt="logo" width={150} height={40}/>
         </div>
         <LoginForm/>
       </div>
