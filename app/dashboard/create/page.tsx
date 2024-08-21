@@ -1,15 +1,18 @@
 
 import CreateForm from '@/app/ui/CreateForm/CreateForm';
 import './styles.css'
+import dotenv from 'dotenv'
+
+dotenv.config({ path: 'variables_db.env' })
 
 export const dynamic = "force-dynamic";
 export const fetchCache = "force-no-store";
 
 
 export default async function Create() {
-  const flats = await (await fetch('https://apiappprospectos-production.up.railway.app/flats')).json()
-  const assessors = await (await fetch('https://apiappprospectos-production.up.railway.app/assessors')).json()
-  const complexes  = await (await fetch('https://apiappprospectos-production.up.railway.app/complexes')).json()
+  const flats = await (await fetch('http://' + process.env.HOST_DEV +  '/flats')).json()
+  const assessors = await (await fetch('http://' + process.env.HOST_DEV +  '/assessors')).json()
+  const complexes  = await (await fetch('http://' + process.env.HOST_DEV +  '/complexes')).json()
  
   async function sendData(data: DataInput) {
     "use server"
@@ -25,7 +28,7 @@ export default async function Create() {
       idAsesor: data.assessorName,
       idConjunto: data.complex
     }
-    const response = await fetch('https://apiappprospectos-production.up.railway.app/prospects', {
+    const response = await fetch('http://' + process.env.HOST_DEV +  '/prospects', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

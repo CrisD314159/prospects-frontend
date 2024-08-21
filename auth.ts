@@ -3,15 +3,14 @@ import { authConfig } from './auth.config'
 import Credentials from 'next-auth/providers/credentials';
 import { z } from 'zod'
 import bcrypt from 'bcrypt'
+import dotenv from 'dotenv'
 
-
-
-
+dotenv.config({ path: 'variables_db.env' })
 
 async function getUser(username: string): Promise<User | undefined> {
     try {
        
-        const result = await fetch(`https://apiappprospectos-production.up.railway.app/users/${username}`)
+        const result = await fetch(`http://` + process.env.HOST_DEV +  `/users/${username}`)
         const user = await result.json()
         return user;
     } catch (error) {

@@ -2,16 +2,18 @@
 import Link from 'next/link';
 import './styles.css'
 import DeleteButton from '../ui/DeleteButton/DeleteButton';
+import dotenv from 'dotenv'
 
+dotenv.config({ path: 'variables_db.env' })
 
 export default async function DashboardPage() {
-  const response = await fetch("https://apiappprospectos-production.up.railway.app/prospects", {cache:"no-store"})
+  const response = await fetch("http://" + process.env.HOST_DEV + "/prospects", {cache:"no-store"})
   const prospectos = await response.json()
 
 
   const deleteProspect = async (id:string) => {
     "use server"
-    const response = await (await fetch(`https://apiappprospectos-production.up.railway.app/prospects/${id}`, { method: 'DELETE' })).json()
+    const response = await (await fetch(`http://` + process.env.HOST_DEV +  `/prospects/${id}`, { method: 'DELETE' })).json()
     if(response){
       return true
     } else {    

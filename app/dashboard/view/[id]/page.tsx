@@ -1,9 +1,12 @@
 
 import Link from 'next/link'
 import './styles.css'
+import dotenv from 'dotenv'
+
+dotenv.config({ path: 'variables_db.env' })
 export default async function ViewPage({params}:{params:{id:string}}) {
   const {id} = params
-  const response = await fetch(`https://apiappprospectos-production.up.railway.app/prospects/${id}`,  { cache: 'no-store' })
+  const response = await fetch(`http://` + process.env.HOST_DEV +  `/prospects/${id}`,  { cache: 'no-store' })
   const prospect:ProspectoView = await response.json()
 
   return(

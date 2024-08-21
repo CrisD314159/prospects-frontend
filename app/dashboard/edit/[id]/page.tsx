@@ -1,13 +1,16 @@
 
 import EditForm from "@/app/ui/EditForm/EditForm"
 import './styles.css'
+import dotenv from 'dotenv'
+
+dotenv.config({ path: 'variables_db.env' })
 
 export default async function Edit({params}: {params: {id: string}}) {
   const {id} = params
-  const prospect = await (await fetch (`https://apiappprospectos-production.up.railway.app/prospects/${id}`, {cache:"no-store"})).json()
-  const flats = await (await fetch('https://apiappprospectos-production.up.railway.app/flats')).json()
-  const assessors = await (await fetch('https://apiappprospectos-production.up.railway.app/assessors')).json()
-  const complexes  = await (await fetch('https://apiappprospectos-production.up.railway.app/complexes')).json()
+  const prospect = await (await fetch (`http://` + process.env.HOST_DEV +  `/prospects/${id}`, {cache:"no-store"})).json()
+  const flats = await (await fetch('http://' + process.env.HOST_DEV +  '/flats')).json()
+  const assessors = await (await fetch('http://' + process.env.HOST_DEV +  '/assessors')).json()
+  const complexes  = await (await fetch('http://' + process.env.HOST_DEV +  '/complexes')).json()
 
   async function sendData(data: DataInput) {
     "use server"
@@ -21,7 +24,7 @@ export default async function Edit({params}: {params: {id: string}}) {
       idInmueble: data.flatName,
       idConjunto: data.complex
     }
-    const response = await fetch(`https://apiappprospectos-production.up.railway.app/prospects/${id}`, {
+    const response = await fetch(`http://` + process.env.HOST_DEV +  `/prospects/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
