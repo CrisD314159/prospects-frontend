@@ -3,16 +3,13 @@ import { authConfig } from './auth.config'
 import Credentials from 'next-auth/providers/credentials';
 import { z } from 'zod'
 import bcrypt from 'bcrypt'
-
-
-
+import { apiFetch } from './api';
 
 
 async function getUser(username: string): Promise<User | undefined> {
     try {
-       
-        const result = await fetch(`https://apiappprospectos-production.up.railway.app/users/${username}`)
-        const user = await result.json()
+        const result = await apiFetch(`/users/${username}`)
+        const user = await result
         return user;
     } catch (error) {
         throw new Error('Failed to fetch user.');
@@ -33,6 +30,7 @@ export const { auth, signIn, signOut } = NextAuth({
                 if (!user) return null
 
                 const passwordsMatch = await bcrypt.compare(password, user.password)
+                bcrypt.hash
 
                 if (passwordsMatch) return user
             }

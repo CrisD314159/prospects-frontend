@@ -1,13 +1,14 @@
 
 import EditForm from "@/app/ui/EditForm/EditForm"
 import './styles.css'
+import { apiFetch } from "@/api"
 
 export default async function Edit({params}: {params: {id: string}}) {
   const {id} = params
-  const prospect = await (await fetch (`https://apiappprospectos-production.up.railway.app/prospects/${id}`, {cache:"no-store"})).json()
-  const flats = await (await fetch('https://apiappprospectos-production.up.railway.app/flats')).json()
-  const assessors = await (await fetch('https://apiappprospectos-production.up.railway.app/assessors')).json()
-  const complexes  = await (await fetch('https://apiappprospectos-production.up.railway.app/complexes')).json()
+  const prospect = await (await apiFetch(`/prospects/${id}`, {cache:"no-store"}))
+  const flats = await (await  apiFetch('/flats'))
+  const assessors = await (await  apiFetch('/assessors'))
+  const complexes  = await (await  apiFetch('/complexes'))
 
   async function sendData(data: DataInput) {
     "use server"
@@ -21,7 +22,7 @@ export default async function Edit({params}: {params: {id: string}}) {
       idInmueble: data.flatName,
       idConjunto: data.complex
     }
-    const response = await fetch(`https://apiappprospectos-production.up.railway.app/prospects/${id}`, {
+    const response = await apiFetch(`/prospects/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'

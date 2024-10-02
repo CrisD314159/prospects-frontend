@@ -2,16 +2,17 @@
 import Link from 'next/link';
 import './styles.css'
 import DeleteButton from '../ui/DeleteButton/DeleteButton';
+import { apiFetch } from '@/api';
 
 
 export default async function DashboardPage() {
-  const response = await fetch("https://apiappprospectos-production.up.railway.app/prospects", {cache:"no-store"})
-  const prospectos = await response.json()
+  const response = await apiFetch("/prospects", {cache:"no-store"})
+  const prospectos = await response
 
 
   const deleteProspect = async (id:string) => {
     "use server"
-    const response = await (await fetch(`https://apiappprospectos-production.up.railway.app/prospects/${id}`, { method: 'DELETE' })).json()
+    const response = await (await apiFetch(`/prospects/${id}`, { method: 'DELETE' }))
     if(response){
       return true
     } else {    

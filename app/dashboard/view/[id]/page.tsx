@@ -1,10 +1,11 @@
 
 import Link from 'next/link'
 import './styles.css'
+import { apiFetch } from '@/api'
 export default async function ViewPage({params}:{params:{id:string}}) {
   const {id} = params
-  const response = await fetch(`https://apiappprospectos-production.up.railway.app/prospects/${id}`,  { cache: 'no-store' })
-  const prospect:ProspectoView = await response.json()
+  const response = await apiFetch(`/prospects/${id}`,  { cache: 'no-store' })
+  const prospect:ProspectoView = await response
 
   return(
     <div className='main-prospect-view-container'>

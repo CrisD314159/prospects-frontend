@@ -1,15 +1,16 @@
 
 import CreateForm from '@/app/ui/CreateForm/CreateForm';
 import './styles.css'
+import { apiFetch } from '@/api';
 
 export const dynamic = "force-dynamic";
 export const fetchCache = "force-no-store";
 
 
 export default async function Create() {
-  const flats = await (await fetch('https://apiappprospectos-production.up.railway.app/flats')).json()
-  const assessors = await (await fetch('https://apiappprospectos-production.up.railway.app/assessors')).json()
-  const complexes  = await (await fetch('https://apiappprospectos-production.up.railway.app/complexes')).json()
+  const flats = await (await apiFetch('/flats'))
+  const assessors = await (await  apiFetch('/assessors'))
+  const complexes  = await (await  apiFetch('/complexes'))
  
   async function sendData(data: DataInput) {
     "use server"
@@ -25,7 +26,7 @@ export default async function Create() {
       idAsesor: data.assessorName,
       idConjunto: data.complex
     }
-    const response = await fetch('https://apiappprospectos-production.up.railway.app/prospects', {
+    const response = await  apiFetch('/prospects', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
