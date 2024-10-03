@@ -1,3 +1,5 @@
+import toast from "react-hot-toast";
+
 //const API_BASE_URL = 'https://apiappprospectos-production.up.railway.app'; // Base URL de la API
 const API_BASE_URL = 'http://localhost:3003'; // Base URL de la API Dev
 
@@ -23,6 +25,7 @@ export async function apiFetch(endpoint: string, options = {}) {
     const data = await response.json();
     return data;
   } catch (error) {
+    toast.error("Ocurrió un error")
     console.error('Fetch error:', error);
     throw error;
   }

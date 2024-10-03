@@ -106,3 +106,39 @@
   width: 95%;
   margin: 10px 0;
 }
+
+.prospects-buttons-container{
+  display: flex;
+  justify-content: left;
+  width: 95%;
+  margin: 10px 0;
+}
+
+.generate-button-container{
+  display: flex;
+  justify-content: right;
+  width: 95%;
+  margin: 10px 0;
+}
+
+.generate-button {
+  display: flex;
+  align-items: center; /* Alinear verticalmente el contenido */
+  justify-content: center; /* Alinear horizontalmente */
+  padding: 10px 20px;
+  background-color: #113939;
+  border-radius: 20px;
+  border: 0;
+  transition: .3s all;
+  color: white;
+  font-size: .8rem;
+  font-weight: 100;
+}
+
+.generate-button:hover {
+  background-color: #1b5757;
+}
+
+.generate-button .icon {
+  margin-right: 8px; /* Espacio entre el ícono y el texto */
+}
