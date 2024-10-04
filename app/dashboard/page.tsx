@@ -3,8 +3,7 @@ import './styles.css';
 import DeleteButton from '../ui/DeleteButton/DeleteButton';
 import GenerateButton from '../ui/GenerateButton/GenerateButton';
 import { apiFetch } from '@/api';
-import { ToastContainer } from 'react-toastify';
-import toast, { Toaster } from 'react-hot-toast';
+import { Toaster } from 'react-hot-toast';
 
 export default async function DashboardPage() {
   const response = await apiFetch("/prospects", { cache: "no-store" });
@@ -15,12 +14,9 @@ export default async function DashboardPage() {
     try {
       await apiFetch('/report', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
       });
     } catch (error) {
-      toast.error('Hubo un problema con la solicitud');
+      console.log('Hubo un problema con la solicitud');
     }
   };
 
@@ -29,7 +25,7 @@ export default async function DashboardPage() {
     const response = await (await apiFetch(`/prospects/${id}`, { method: 'DELETE' }));
     return response ? true : false;
   };
-
+ 
   if (!prospectos) {
     return (
       <div className='main-propsect-container'>
@@ -88,4 +84,4 @@ export default async function DashboardPage() {
       </div>
     </div>
   );
-}
+} 
