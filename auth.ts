@@ -32,7 +32,18 @@ export const { auth, signIn, signOut } = NextAuth({
                 const passwordsMatch = await bcrypt.compare(password, user.password)
                 bcrypt.hash
 
-                if (passwordsMatch) return user
+                if (passwordsMatch){ 
+                    await apiFetch('/userId', {
+                        method: 'POST',
+                        headers: {
+                          'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            id: username
+                        })
+                    })
+                    return user
+                }
             }
             return null
         }
