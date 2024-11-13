@@ -46,5 +46,9 @@ interface DataInput {
 interface User {
   id:string,
   usuario:string,
-  password:string
+  nombre:string,
+  telefono:string,
+  password:string,
+  email:string
+  esadministrador:boolean
 }

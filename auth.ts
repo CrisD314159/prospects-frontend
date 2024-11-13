@@ -4,6 +4,7 @@ import Credentials from 'next-auth/providers/credentials';
 import { z } from 'zod'
 import bcrypt from 'bcrypt'
 import { apiFetch } from './api';
+import { setAdmin,getAdmin } from './app/context/AuthContext';
 
 
 async function getUser(username: string): Promise<User | undefined> {
@@ -28,7 +29,8 @@ export const { auth, signIn, signOut } = NextAuth({
                 const { username, password } = parsedCredentials.data
                 const user = await getUser(username)
                 if (!user) return null
-
+                setAdmin(user.esadministrador)
+                console.log(getAdmin()+' Auth')
                 const passwordsMatch = await bcrypt.compare(password, user.password)
                 bcrypt.hash
 

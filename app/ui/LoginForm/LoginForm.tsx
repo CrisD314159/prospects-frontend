@@ -1,7 +1,7 @@
 'use client'
 import { useFormState, useFormStatus } from "react-dom"
 import './loginForm.css'
-import { authenticate } from '@/app/lib/actions'
+import { authenticate} from '@/app/lib/actions'
 export default function LoginForm (){
   const [errorMessage, dispatch] = useFormState(authenticate, undefined);
   return (
@@ -25,15 +25,12 @@ export default function LoginForm (){
 
       </form>
   )
-  
 }
-
-
 function LoginButton() {
   const {pending} = useFormStatus()
 
   return(
     <button className="sign-in-button" aria-disabled = {pending}>Iniciar sesión</button>
   )
-  
+
 }

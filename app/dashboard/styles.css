@@ -107,11 +107,21 @@
   margin: 10px 0;
 }
 
-.prospects-buttons-container{
+.prospects-buttons-container {
   display: flex;
+  gap: 10px; /* Espacio entre los botones */
+  align-items: center;
   justify-content: left;
-  width: 95%;
+  width: 100%; /* Ajustar el ancho según necesites */
   margin: 10px 0;
+}
+
+.create-button-container,
+.admin-button-container,
+.generate-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .generate-button-container{
@@ -141,4 +151,33 @@
 
 .generate-button .icon {
   margin-right: 8px; /* Espacio entre el ícono y el texto */
+}
+.admin-button-container {
+  display: flex;
+  justify-content: left;
+  width: 95%;
+  margin: 10px 0;
+}
+
+.admin-button {
+  padding: 10px 20px;
+  background-color: #113939;
+  border-radius: 20px;
+  border: 0;
+  transition: .3s all;
+  color: white;
+  font-size: .8rem;
+  font-weight: 100;
+  cursor: pointer;
+}
+
+.admin-button:hover {
+  background-color: #1b5757;
+}
+
+.admin-button a {
+  color: white;
+  font-size: .8rem;
+  font-weight: 100;
+  text-decoration: none; /* Eliminar subrayado si es un enlace */
 }

@@ -1,0 +1,81 @@
+.main-userview-container {
+  width: 95%;
+  background-color: #f9f9f9; /* Cambiado a un color más claro para mayor contraste */
+  margin-top: 8rem;
+  margin: 2rem;
+  padding: 40px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userview-container {
+  margin: 20px 0;
+  padding: 20px;
+  border: 1px solid #c7c7c7;
+  border-radius: 10px;
+  width: 100%;
+  background-color: #ebe8e8; /* Color de fondo para cada usuario */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Agregar sombra para un efecto de elevación */
+  display: flex; /* Cambiar a flex para centrar el contenido */
+  flex-direction: column; /* Alinear verticalmente */
+  align-items: center;
+}
+
+.userview-name {
+  font-size: 1.5rem; /* Tamaño de fuente mayor para el nombre */
+  font-weight: bold; /* Negrita para destacar el nombre */
+}
+
+.userview-email {
+  font-size: 1rem; /* Tamaño de fuente normal para el email */
+  color: #666; /* Color gris para el email */
+  margin-top: 5px; /* Espacio arriba del email */
+}
+
+.editview-button {
+  padding: 10px 15px; /* Agregado margen a los lados */
+  background-color: #1b5757; /* Color más claro que el de la creación */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s; /* Transición para el efecto hover */
+}
+
+.editview-button:hover {
+  background-color: #113939; /* Cambio de color al pasar el ratón */
+}
+
+.buttonview-container {
+  display: flex;
+  justify-content: space-around; /* Espaciado entre botones */
+  width: 100%; /* Para que ocupen el ancho completo */
+  margin-top: 20px; /* Margen arriba para separar de los detalles del usuario */
+}
+
+.user-info {
+  margin: 10px 0; /* Espaciado superior e inferior */
+  font-size: 1rem; /* Tamaño de fuente */
+  color: #333; /* Color del texto */
+}
+
+.user-info strong {
+  font-weight: bold; /* Hacer el texto en negrita */
+}
+
+
+.backview-button {
+  padding: 10px 15px;
+  background-color: #FF1F00; /* Botón de retroceso en color rojo */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.backview-button:hover {
+  background-color: #f44d37; /* Efecto hover para el botón de retroceso */
+}
